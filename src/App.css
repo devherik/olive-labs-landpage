@@ -9,7 +9,6 @@
   background: rgba(var(--background), 0.8);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
   z-index: 100;
   display: flex;
   align-items: center;
@@ -26,7 +25,7 @@
 }
 
 .nav-logo {
-  height: 32px;
+  height: 100px;
   width: auto;
 }
 
@@ -85,7 +84,7 @@
   justify-content: center;
   padding: 120px var(--space-margin-desktop) 80px;
   background-image: radial-gradient(at 0% 0%, rgba(112, 130, 56, 0.08) 0px, transparent 50%),
-                    radial-gradient(at 100% 100%, rgba(64, 224, 208, 0.08) 0px, transparent 50%);
+    radial-gradient(at 100% 100%, rgba(64, 224, 208, 0.08) 0px, transparent 50%);
   overflow: hidden;
 }
 
@@ -94,7 +93,7 @@
   position: absolute;
   inset: 0;
   background-image: linear-gradient(var(--border) 1px, transparent 1px),
-                    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
   background-size: 60px 60px;
   opacity: 0.25;
   z-index: 0;
@@ -199,9 +198,17 @@
   border-radius: var(--rounded-full);
 }
 
-.terminal-dot.red { background-color: var(--error); }
-.terminal-dot.yellow { background-color: var(--studio-sage); }
-.terminal-dot.green { background-color: var(--studio-mint); }
+.terminal-dot.red {
+  background-color: var(--error);
+}
+
+.terminal-dot.yellow {
+  background-color: var(--studio-sage);
+}
+
+.terminal-dot.green {
+  background-color: var(--studio-mint);
+}
 
 .terminal-filename {
   font-family: var(--font-mono);
@@ -271,10 +278,22 @@
   text-align: right;
 }
 
-.code-keyword { color: var(--secondary); }
-.code-string { color: var(--studio-sage); }
-.code-number { color: var(--studio-mint); }
-.code-comment { color: var(--outline); font-style: italic; }
+.code-keyword {
+  color: var(--secondary);
+}
+
+.code-string {
+  color: var(--studio-sage);
+}
+
+.code-number {
+  color: var(--studio-mint);
+}
+
+.code-comment {
+  color: var(--outline);
+  font-style: italic;
+}
 
 /* Manifesto Quote Block */
 .manifesto-section {
@@ -423,7 +442,8 @@
   }
 
   .nav-menu {
-    display: none; /* simple mobile simplification */
+    display: none;
+    /* simple mobile simplification */
   }
 
   .hero-section {

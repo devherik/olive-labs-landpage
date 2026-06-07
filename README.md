@@ -1,75 +1,91 @@
-# React + TypeScript + Vite
+# Olive Labs — Landpage
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Engineered for Longevity](https://img.shields.io/badge/Engineered%20for-Longevity-708238)](./CONTEXT.md)
+[![Rooted in Logic](https://img.shields.io/badge/Rooted%20in-Logic-1A1D20)](./CONTEXT.md)
 
-Currently, two official plugins are available:
+This repository contains the landing page for **Olive Labs**, a premium software house and studio focused on high-craft side projects, SaaS development, and professional-grade developer tooling.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+For detailed background details, refer to the foundational documents:
+*   [CONTEXT.md](./CONTEXT.md) — Studio Manifesto & Core Documentation.
+*   [DESIGN.md](./DESIGN.md) — Cyber-Mediterranean Design System & Aesthetic Blueprint.
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 1. Manifesto & Core Pillars
 
-Note: This will impact Vite dev & build performances.
+Olive Labs operates on the core mantra: **"Engineered for Longevity. Rooted in Logic."**
 
-## Expanding the ESLint configuration
+We design digital environments where complex ideas safely take root and flourish, anchored on three unyielding pillars:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### I. Greenfield Excellence & Clean Architecture
+We specialize in creating new, unburdened systems from scratch using clean code and SOLID design principles. Technical debt is treated as a choice—we choose sustainability.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### II. Symbiotic (Ethical) Intelligence
+We reject AI as a replacement for human output. At Olive Labs, **AI is the Muse, never the Ghostwriter**.
+*   **Augmentation, Not Automation:** Multi-agent workflows and local models exist to accelerate human research and manage data organization.
+*   **Creative Sovereignty:** The final output belongs entirely to the human designer.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### III. Radical Simplicity & Focus
+We build blazingly fast, keyboard-centric, utility-driven interfaces for professionals who command high-performance environments, completely free from addictive UX loops and product bloat.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 2. Technology & Architecture Strategy
+
+*   **Frontend Web App:** High-performance single page application built on React 19, TypeScript, and Vite.
+*   **Backend Services:** Powered by Go (for concurrent microservices) and Python (for orchestration and data engineering).
+*   **Intelligent Data Layer:** Offline-first Retrieval-Augmented Generation (RAG) and vector databases for sovereign, secure knowledge bases.
+*   **Infrastructure:** Fully containerized using Docker, designed to run reliably on independent servers.
+
+---
+
+## 3. The "Cyber-Mediterranean" Design System
+
+The visual language of Olive Labs is established to scream **high-end software studio**, treating the "olive" concept as a mathematical database node.
+
+### Core Color Palette
+*   **Primary Dark (Deep Slate / Charcoal):** `#1A1D20`
+*   **Studio Accent (Sophisticated Olive / Sage):** `#708238`
+*   **Tech Highlight (Vibrant Mint / Digital Green):** `#40E0D0`
+*   **Background (Off-Cream):** `#F8F9FA`
+
+### Typography
+*   **Brand & Display:** Montserrat (Geometric, bold display sans-serif)
+*   **Body Text:** Inter (High legibility, clean sans-serif)
+*   **Interface & Monospace:** JetBrains Mono (For interface controls, code, and layout metrics)
+
+---
+
+## 4. Development & Verification Guide
+
+This project is built using React + TypeScript + Vite.
+
+### Prerequisites
+*   Node.js or Bun package manager (see [package.json](./package.json)).
+
+### Available Scripts
+Run the following scripts from the project root:
+
+```bash
+# Start the local development server with Hot Module Replacement (HMR)
+npm run dev      # or bun run dev
+
+# Run linting checks using ESLint
+npm run lint     # or bun run lint
+
+# Compile TypeScript and build the production bundle
+npm run build    # or bun run build
+
+# Preview the built production application locally
+npm run preview  # or bun run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 5. Architectural Standards
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+When contributing code or features to this repository:
+1.  **Strict Layer Separation:** Ensure user interfaces do not contain core business logic.
+2.  **Typography Consistency:** Use monospaced labels for interactive elements and JetBrains Mono for system metrics.
+3.  **No Arbitrary Borders:** Align surfaces strictly to the 12-column fixed grid with 24px gutters. Use low-contrast outliner styling over floating box-shadow elevations.

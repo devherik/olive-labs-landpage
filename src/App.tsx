@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useUIStore } from './store'
 
 import './App.css'
@@ -79,7 +80,11 @@ const PROJECTS: Project[] = [
 ]
 
 function App() {
-  const { theme, setTheme, terminalTab, setTerminalTab } = useUIStore()
+  const { theme, setTheme, terminalTab, setTerminalTab, initState } = useUIStore()
+
+  useEffect(() => {
+    initState()
+  }, [initState])
 
   // Rendering for the interactive terminal content based on the selected tab
   const renderTerminalContent = () => {

@@ -18,15 +18,17 @@ interface UIState {
 const getSystemTheme = (): "light" | "dark" =>
   window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 
-const activeThemeListener: (() => void) | null = null;
+let activeThemeListener: ((e: MediaQueryListEvent) => void) | null = null;
 
 const applyThemeToDOM = (theme: Theme, font: Font) => {
   const effectiveTheme = theme === "system" ? getSystemTheme() : theme;
 
   // Clean up previous classes to avoid conflicts
-  document.documentElement.classList.remove("dark", "sepia");
+  document.documentElement.classList.remove("dark", "light-theme");
   if (effectiveTheme === "dark") {
     document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.add("light-theme");
   }
 
   // Handle Font Style
@@ -75,6 +77,13 @@ export const useUIStore = create<UIState>()(
         if (activeThemeListener) {
           mediaQuery.removeEventListener('change', activeThemeListener);
         }
+
+        activeThemeListener = () => {
+          // Re-apply theme when system theme changes, but only if the theme is set to 'system'
+          if (get().theme === 'system') {
+            applyThemeToDOM('system', get().font);
+          }
+        };
 
         mediaQuery.addEventListener("change", activeThemeListener);
 

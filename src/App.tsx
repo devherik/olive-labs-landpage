@@ -458,8 +458,7 @@ function App() {
               </span>
             </div>
             <div className="footer-nav">
-              <a href="https://github.com" target="_blank" rel="noreferrer" className="footer-link">Github</a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="footer-link">LinkedIn</a>
+              <a href="https://github.com/Green-Olive-Labs" target="_blank" rel="noreferrer" className="footer-link">Github</a>
             </div>
           </footer>
         </main>

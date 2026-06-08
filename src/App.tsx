@@ -1,8 +1,14 @@
 import { useUIStore } from './store'
+
+import './App.css'
+
+import { Moon, Sun1 } from 'iconsax-reactjs'
+
 import logoImg from './assets/logo.png'
 import logoIcon from './assets/logo-icon-only.png'
-import './App.css'
-import FadeInEffect from './animations/fade-in/FadeInEffect'
+
+import FadeInEffect from './animations/FadeInEffect'
+import { AnimatedPresenceWrapper } from './animations/AnimatedPresenceWrapperProps'
 
 interface Pillar {
   nodeId: string
@@ -214,16 +220,12 @@ function App() {
               aria-label="Toggle theme"
               title="Toggle theme schema"
             >
-              {isDarkMode ? (
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="4" />
-                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
-                </svg>
-              ) : (
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-                </svg>
-              )}
+              <AnimatedPresenceWrapper isPresent={isDarkMode}>
+                <Moon size={18} color="currentColor" variant='Bulk' />
+              </AnimatedPresenceWrapper>
+              <AnimatedPresenceWrapper isPresent={!isDarkMode}>
+                <Sun1 size={18} color="currentColor" variant='Bold' />
+              </AnimatedPresenceWrapper>
             </button>
             <a href="#contact" className="btn-primary">
               Build With Us

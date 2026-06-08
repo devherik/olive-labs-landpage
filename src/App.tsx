@@ -79,7 +79,7 @@ const PROJECTS: Project[] = [
 ]
 
 function App() {
-  const { isDarkMode, toggleDarkMode, terminalTab, setTerminalTab } = useUIStore()
+  const { theme, setTheme, terminalTab, setTerminalTab } = useUIStore()
 
   // Rendering for the interactive terminal content based on the selected tab
   const renderTerminalContent = () => {
@@ -216,14 +216,14 @@ function App() {
             <button
               type="button"
               className="theme-toggle-btn"
-              onClick={toggleDarkMode}
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               aria-label="Toggle theme"
               title="Toggle theme schema"
             >
-              <AnimatedPresenceWrapper isPresent={isDarkMode}>
+              <AnimatedPresenceWrapper isPresent={theme === 'dark'}>
                 <Moon size={18} color="currentColor" variant='Bulk' />
               </AnimatedPresenceWrapper>
-              <AnimatedPresenceWrapper isPresent={!isDarkMode}>
+              <AnimatedPresenceWrapper isPresent={theme !== 'dark'}>
                 <Sun1 size={18} color="currentColor" variant='Bold' />
               </AnimatedPresenceWrapper>
             </button>

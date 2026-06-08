@@ -1,48 +1,96 @@
 import { create } from 'zustand'
+import { persist, createJSONStorage } from 'zustand/middleware'
+
+import { type Theme, type Font, type Locale, ThemeSchema, FontSchema, LocaleSchema } from './schemas'
 
 interface UIState {
-  isDarkMode: boolean
-  toggleDarkMode: () => void
+  theme: Theme;
+  font: Font;
+  locale: Locale;
+  setTheme: (theme: Theme) => void;
+  setFont: (font: Font) => void;
+  setLocale: (locale: Locale) => void;
+  initState: () => void;
   terminalTab: 'manifest' | 'infrastructure' | 'commands'
   setTerminalTab: (tab: 'manifest' | 'infrastructure' | 'commands') => void
 }
 
-export const useUIStore = create<UIState>((set) => {
-  // Check system/local preferences on load
-  const isDarkInitial =
-    typeof window !== 'undefined'
-      ? document.documentElement.classList.contains('dark') ||
-        localStorage.getItem('theme') === 'dark' ||
-        (!('theme' in localStorage) &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches)
-      : false
+const getSystemTheme = (): "light" | "dark" =>
+  window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 
-  // Set initial class list
-  if (typeof window !== 'undefined') {
-    if (isDarkInitial) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
+const activeThemeListener: (() => void) | null = null;
+
+const applyThemeToDOM = (theme: Theme, font: Font) => {
+  const effectiveTheme = theme === "system" ? getSystemTheme() : theme;
+
+  // Clean up previous classes to avoid conflicts
+  document.documentElement.classList.remove("dark", "sepia");
+  if (effectiveTheme === "dark") {
+    document.documentElement.classList.add("dark");
   }
 
-  return {
-    isDarkMode: isDarkInitial,
-    toggleDarkMode: () =>
-      set((state) => {
-        const nextDark = !state.isDarkMode
-        if (typeof window !== 'undefined') {
-          if (nextDark) {
-            document.documentElement.classList.add('dark')
-            localStorage.setItem('theme', 'dark')
-          } else {
-            document.documentElement.classList.remove('dark')
-            localStorage.setItem('theme', 'light')
-          }
+  // Handle Font Style
+  document.documentElement.classList.remove("font-serif", "font-sans");
+  document.documentElement.classList.add(`font-${font}`);
+};
+
+export const useUIStore = create<UIState>()(
+  persist(
+    (set, get) => ({
+      theme: 'system',
+      font: 'sans',
+      locale: 'pt-br',
+      setTheme: (theme: Theme) => {
+        const result = ThemeSchema.safeParse(theme);
+        if (!result.success) {
+          theme = 'light';
         }
-        return { isDarkMode: nextDark }
+        set({ theme });
+        applyThemeToDOM(theme, get().font);
+      },
+      setFont: (font: Font) => {
+        const result = FontSchema.safeParse(font);
+        if (!result.success) {
+          font = 'sans';
+        }
+        set({ font });
+        applyThemeToDOM(get().theme, font);
+      },
+      setLocale: (locale: Locale) => {
+        const result = LocaleSchema.safeParse(locale);
+        if (!result.success) {
+          locale = 'pt-br';
+        }
+        set({ locale });
+      },
+      initState: () => {
+        const storedTheme = get().theme;
+        const storedFont = get().font;
+        const storedLocale = get().locale;
+
+        applyThemeToDOM(storedTheme, storedFont);
+
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+        if (activeThemeListener) {
+          mediaQuery.removeEventListener('change', activeThemeListener);
+        }
+
+        mediaQuery.addEventListener("change", activeThemeListener);
+
+        set({ theme: storedTheme, font: storedFont, locale: storedLocale });
+      },
+      terminalTab: 'manifest',
+      setTerminalTab: (tab) => set({ terminalTab: tab }),
+    }),
+    {
+      name: 'olive-labs-ui',
+      storage: createJSONStorage(() => localStorage),
+      partialize: (state) => ({
+        theme: state.theme,
+        font: state.font,
+        locale: state.locale,
       }),
-    terminalTab: 'manifest',
-    setTerminalTab: (tab) => set({ terminalTab: tab }),
-  }
-})
+    }
+  )
+)

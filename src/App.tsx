@@ -7,8 +7,8 @@ import { Moon, Sun1 } from 'iconsax-reactjs'
 import logoImg from './assets/logo.png'
 import logoIcon from './assets/logo-icon-only.png'
 
-import FadeInEffect from './animations/FadeInEffect'
-import AnimatedPresenceWrapper from './animations/AnimatedPresenceWrapperProps'
+import FadeInEffect from './animations/AnimatedFadeIn'
+import AnimatedPresenceWrapper from './animations/AnimatedPresenceWrapper'
 
 interface Pillar {
   nodeId: string

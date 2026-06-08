@@ -6,6 +6,7 @@ import './App.css'
 import { Moon, Sun1 } from 'iconsax-reactjs'
 
 import logoImg from './assets/logo.png'
+import logoDarkImg from './assets/logo-dark.png'
 import logoIcon from './assets/logo-icon-only.png'
 
 import FadeInEffect from './animations/AnimatedFadeIn'
@@ -215,7 +216,11 @@ function App() {
         {/* Navigation Header */}
         <header className="nav-header">
           <div className="nav-logo-group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <img src={logoImg} alt="Olive Labs Logo" className="nav-logo" />
+            {theme === 'dark' ? (
+              <img src={logoDarkImg} alt="Olive Labs Logo" className="nav-logo" />
+            ) : (
+              <img src={logoImg} alt="Olive Labs Logo" className="nav-logo" />
+            )}
           </div>
           <div className="nav-actions">
             <button

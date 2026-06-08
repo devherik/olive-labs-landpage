@@ -1,5 +1,6 @@
-import { useEffect, useRef } from 'react';
 import { animate } from 'animejs';
+import { useAnimatePresence } from '../hooks/useAnimatePresence';
+
 
 interface FadeInEffectProps {
   children: React.ReactNode;
@@ -7,32 +8,28 @@ interface FadeInEffectProps {
   delay?: number;
 }
 
-/**
- * FadeInEffect component provides a subtle fade-in and slight slide-up animation
- * to its children when it mounts, using anime.js.
- * 
- * Adheres to "The Sanctuary" design system: calm, focused, and intentional.
- */
 const FadeInEffect: React.FC<FadeInEffectProps> = ({
   children,
   duration = 5000,
   delay = 0
 }) => {
-  const elementRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (elementRef.current) {
-      animate(elementRef.current, {
+  const { isRendered, ref } = useAnimatePresence<HTMLDivElement>({
+    isPresent: true,
+    onEnter: (el) => {
+      animate(el, {
         opacity: [0, 1],
         duration: duration,
         delay: delay,
         ease: 'outExpo',
       });
-    }
-  }, [duration, delay]);
+    },
+    onExit: async () => { }
+  });
+
+  if (!isRendered) return null;
 
   return (
-    <div ref={elementRef} style={{ width: '100%', height: '100%' }}>
+    <div ref={ref} style={{ width: '100%', height: '100%' }}>
       {children}
     </div>
   );

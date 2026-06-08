@@ -8,7 +8,7 @@ import logoImg from './assets/logo.png'
 import logoIcon from './assets/logo-icon-only.png'
 
 import FadeInEffect from './animations/FadeInEffect'
-import { AnimatedPresenceWrapper } from './animations/AnimatedPresenceWrapperProps'
+import AnimatedPresenceWrapper from './animations/AnimatedPresenceWrapperProps'
 
 interface Pillar {
   nodeId: string

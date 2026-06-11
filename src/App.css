@@ -157,6 +157,13 @@
   color: var(--outline);
 }
 
+.logoIcon-quote {
+  height: 75px;
+  width: auto;
+  margin-bottom: 64px;
+  opacity: 0.65;
+}
+
 .pillars-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -464,6 +471,10 @@
 
   .hero-section {
     padding: 100px var(--space-margin-mobile) 60px;
+  }
+
+  .hero-content {
+    padding: 2rem 0;
   }
 
   .section-wrapper {

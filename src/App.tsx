@@ -57,7 +57,7 @@ const PILLARS: Pillar[] = [
 const PROJECTS: Project[] = [
   {
     projectId: '01_FOLIOR',
-    title: 'Folior.io',
+    title: 'folior.io',
     description: 'A sovereign writing sanctuary for professional novelists and journalists. Engineered for deep focus and data permanence.',
     category: 'FLAGSHIP',
     isFlagship: true,
@@ -374,6 +374,7 @@ function App() {
           {/* Manifesto Quote Section */}
           <section className="manifesto-section">
             <ScrollReveal direction="up" distance={30} duration={1000}>
+              <img className="logoIcon-quote" src={logoIcon} alt="Olive Labs Logo" />
               <blockquote className="manifesto-quote">
                 "We believe software is the modern <span className="manifesto-highlight">architecture of the mind</span>. Every line of code is a deliberate decision towards either <span style={{ color: 'var(--studio-mint)' }}>entropy or longevity</span>. We choose the latter."
               </blockquote>

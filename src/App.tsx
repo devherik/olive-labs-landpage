@@ -8,10 +8,12 @@ import { Moon, Sun1 } from 'iconsax-reactjs'
 import logoImg from './assets/logo.png'
 import logoDarkImg from './assets/logo-dark.png'
 import logoIcon from './assets/logo-icon-only.png'
+import heroImg from './assets/hero.png'
 
 import FadeInEffect from './animations/AnimatedFadeIn'
 import AnimatedPresenceWrapper from './animations/AnimatedPresenceWrapper'
 import ScrollReveal from './animations/ScrollReveal'
+import SlideInEffect from './animations/AnimatedSlideIn'
 
 interface Pillar {
   nodeId: string
@@ -245,10 +247,14 @@ function App() {
         </header>
 
         {/* Main Container */}
-        <main id="root" style={{ paddingTop: '72px' }}>
+        <main id="root">
 
           {/* Hero Section */}
           <section className="hero-section">
+            <div className="hero-bg-container">
+              <img src={heroImg} alt="Serene Olive Tree Landscape" className="hero-bg-image" />
+              <div className="hero-bg-overlay"></div>
+            </div>
             <ScrollReveal direction="up" distance={30} duration={1000}>
               <div className="hero-content">
                 <div className="hero-tagline">
@@ -356,7 +362,9 @@ function App() {
                     </button>
                   </aside>
                   <div className="terminal-content">
-                    {renderTerminalContent()}
+                    <SlideInEffect>
+                      {renderTerminalContent()}
+                    </SlideInEffect>
                   </div>
                 </div>
               </div>

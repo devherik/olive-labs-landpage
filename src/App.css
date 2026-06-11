@@ -21,7 +21,6 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  cursor: pointer;
 }
 
 .nav-logo {
@@ -33,22 +32,6 @@
   display: flex;
   align-items: center;
   gap: 32px;
-}
-
-.nav-link {
-  font-family: var(--font-mono);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--on-surface-variant);
-  transition: color var(--transition-fast);
-  padding: 4px 0;
-  border-bottom: 2px solid transparent;
-}
-
-.nav-link.active,
-.nav-link:hover {
-  color: var(--primary);
-  border-bottom-color: var(--primary);
 }
 
 .nav-actions {
@@ -71,21 +54,52 @@
 }
 
 .theme-toggle-btn:hover {
-  border-color: var(--primary);
-  background: var(--surface-container-low);
+  border-color: var(--outline);
 }
 
-/* Hero Section with Grid & Gradient Mesh */
+/* Hero Section with Grid & Background Image */
 .hero-section {
   position: relative;
-  min-height: 80svh;
+  min-height: 100svh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 120px var(--space-margin-desktop) 80px;
-  background-image: radial-gradient(at 0% 0%, rgba(112, 130, 56, 0.08) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(64, 224, 208, 0.08) 0px, transparent 50%);
   overflow: hidden;
+}
+
+.hero-bg-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-bg-image {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.65;
+  transition: opacity var(--transition-smooth);
+}
+
+.dark .hero-bg-image {
+  opacity: 0.3;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--background) 15%, rgba(var(--background-rgb), 0.5) 60%, transparent 100%);
+  transition: background var(--transition-smooth);
+}
+
+@media (max-width: 1024px) {
+  .hero-bg-overlay {
+    background: linear-gradient(180deg, var(--background) 10%, rgba(var(--background-rgb), 0.5) 50%, var(--background) 90%);
+  }
 }
 
 .hero-section::before {
@@ -95,15 +109,16 @@
   background-image: linear-gradient(var(--border) 1px, transparent 1px),
     linear-gradient(90deg, var(--border) 1px, transparent 1px);
   background-size: 60px 60px;
-  opacity: 0.25;
-  z-index: 0;
+  opacity: 0.15;
+  z-index: 1;
   pointer-events: none;
 }
 
 .hero-content {
+  padding: 4rem var(--space-margin-desktop);
   position: relative;
   z-index: 1;
-  max-width: 840px;
+  max-width: 1440px;
   text-align: left;
 }
 
@@ -123,6 +138,8 @@
   padding: 96px var(--space-margin-desktop);
   border-top: 1px solid var(--border);
   position: relative;
+  max-width: 1440px;
+  margin: auto;
 }
 
 .section-header {
@@ -301,6 +318,7 @@
   background: var(--surface-container-high);
   position: relative;
   text-align: center;
+
 }
 
 .manifesto-quote {

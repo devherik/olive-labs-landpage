@@ -18,44 +18,45 @@
   --outline: #75777a;
   --outline-variant: #c5c6ca;
   --surface-tint: #5c5f62;
-  
+
   --primary: #010204;
   --on-primary: #ffffff;
   --primary-container: #1a1d20;
   --on-primary-container: #828589;
   --inverse-primary: #c5c6ca;
-  
+
   --secondary: #54651e;
   --on-secondary: #ffffff;
   --secondary-container: #d7ec95;
   --on-secondary-container: #5a6b24;
-  
+
   --tertiary: #000202;
   --on-tertiary: #ffffff;
   --tertiary-container: #00211e;
   --on-tertiary-container: #009589;
-  
+
   --error: #ba1a1a;
   --on-error: #ffffff;
   --error-container: #ffdad6;
   --on-error-container: #93000a;
-  
+
   --primary-fixed: #e1e2e6;
   --primary-fixed-dim: #c5c6ca;
   --on-primary-fixed: #191c1f;
   --on-primary-fixed-variant: #44474a;
-  
+
   --secondary-fixed: #d7ec95;
   --secondary-fixed-dim: #bbcf7c;
   --on-secondary-fixed: #161e00;
   --on-secondary-fixed-variant: #3d4c05;
-  
+
   --tertiary-fixed: #61f9e9;
   --tertiary-fixed-dim: #3adccc;
   --on-tertiary-fixed: #00201d;
   --on-tertiary-fixed-variant: #005049;
-  
+
   --background: #f8f9fa;
+  --background-rgb: 248, 249, 250;
   --on-background: #191c1d;
   --surface-variant: #e1e3e4;
 
@@ -64,20 +65,23 @@
   --studio-sage: #708238;
   --studio-mint: #40E0D0;
   --studio-cream: #F8F9FA;
-  
+
   /* Layout & Spacing */
   --space-unit: 4px;
-  --space-gutter: 24px;
   --space-margin-mobile: 16px;
-  --space-margin-desktop: 64px;
-  --max-width: 1440px;
-  
+  --space-margin-desktop: 8rem;
+
   /* Shapes & Roundness */
-  --rounded-sm: 0.125rem;       /* 2px */
-  --rounded-default: 0.25rem;   /* 4px */
-  --rounded-md: 0.375rem;      /* 6px */
-  --rounded-lg: 0.5rem;        /* 8px */
-  --rounded-xl: 0.75rem;       /* 12px */
+  --rounded-sm: 0.125rem;
+  /* 2px */
+  --rounded-default: 0.25rem;
+  /* 4px */
+  --rounded-md: 0.375rem;
+  /* 6px */
+  --rounded-lg: 0.5rem;
+  /* 8px */
+  --rounded-xl: 0.75rem;
+  /* 12px */
   --rounded-full: 9999px;
 
   /* Typography Fonts */
@@ -89,7 +93,7 @@
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-bounce: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
-  
+
   --text: var(--on-background);
   --text-h: var(--primary);
   --bg: var(--background);
@@ -124,8 +128,9 @@
 @media (prefers-color-scheme: dark) {
   :root:not(.light-theme) {
     --background: #1A1D20;
+    --background-rgb: 26, 29, 32;
     --on-background: #F8F9FA;
-    
+
     --surface: #1e2124;
     --surface-dim: #141618;
     --surface-bright: #292d32;
@@ -141,22 +146,22 @@
     --outline: #8e9094;
     --outline-variant: #44474a;
     --surface-tint: #a8abb0;
-    
+
     --primary: #f8f9fa;
     --on-primary: #1a1d20;
     --primary-container: #2b2f33;
     --on-primary-container: #c5c6ca;
-    
+
     --secondary: #bbcf7c;
     --on-secondary: #161e00;
     --secondary-container: #3d4c05;
     --on-secondary-container: #d7ec95;
-    
+
     --tertiary: #40E0D0;
     --on-tertiary: #00201d;
     --tertiary-container: #005049;
     --on-tertiary-container: #61f9e9;
-    
+
     --error: #ffb4ab;
     --on-error: #690005;
     --error-container: #93000a;
@@ -170,8 +175,9 @@
 /* Explicit class-based dark theme */
 :root.dark {
   --background: #1A1D20;
+  --background-rgb: 26, 29, 32;
   --on-background: #F8F9FA;
-  
+
   --surface: #1e2124;
   --surface-dim: #141618;
   --surface-bright: #292d32;
@@ -187,22 +193,22 @@
   --outline: #8e9094;
   --outline-variant: #44474a;
   --surface-tint: #a8abb0;
-  
+
   --primary: #f8f9fa;
   --on-primary: #1a1d20;
   --primary-container: #2b2f33;
   --on-primary-container: #c5c6ca;
-  
+
   --secondary: #bbcf7c;
   --on-secondary: #161e00;
   --secondary-container: #3d4c05;
   --on-secondary-container: #d7ec95;
-  
+
   --tertiary: #40E0D0;
   --on-tertiary: #00201d;
   --tertiary-container: #005049;
   --on-tertiary-container: #61f9e9;
-  
+
   --error: #ffb4ab;
   --on-error: #690005;
   --error-container: #93000a;
@@ -213,7 +219,9 @@
 }
 
 /* Base resets & styles */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -235,13 +243,16 @@ body {
   width: 8px;
   height: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--surface-container-low);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--outline-variant);
   border-radius: var(--rounded-sm);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--outline);
 }
@@ -322,6 +333,7 @@ a {
   text-decoration: none;
   transition: color var(--transition-fast);
 }
+
 a:hover {
   color: var(--studio-mint);
 }
@@ -441,10 +453,13 @@ button.counter:hover,
 }
 
 @keyframes pulse-node {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.6;
     transform: scale(0.9);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.2);
@@ -510,7 +525,7 @@ textarea:focus {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--outline-variant);
   border-radius: var(--rounded-lg);
-  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .dark .command-palette {
@@ -523,7 +538,7 @@ textarea:focus {
     font-size: 32px;
     line-height: 40px;
   }
-  
+
   #root {
     padding: 0 var(--space-margin-mobile);
   }

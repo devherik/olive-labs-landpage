@@ -304,9 +304,9 @@ function App() {
                       </div>
                     </div>
 
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '48px', paddingTop: '24px', borderTop: '1px solid var(--border)' }}>
-                      <span className="interface-code" style={{ color: 'var(--outline)' }}>PROJECT_ID: {project.projectId}</span>
-                      <a href="https://folior.io" target="_blank" rel="noreferrer" className="btn-secondary" style={{ padding: '4px 12px', fontSize: '12px' }}>
+                    <div className="project-footer">
+                      <span className="interface-code project-footer-id">PROJECT_ID: {project.projectId}</span>
+                      <a href="https://folior.io" target="_blank" rel="noreferrer" className="btn-secondary project-footer-btn">
                         EXPLORE_CASE_STUDY.SH
                       </a>
                     </div>

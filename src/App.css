@@ -208,7 +208,6 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--border);
-  min-height: 56px;
 }
 
 .terminal-buttons {
@@ -254,7 +253,6 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  max-height: 85px;
   overflow-y: hidden;
 }
 

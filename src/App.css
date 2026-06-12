@@ -167,7 +167,7 @@
 .pillars-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-gutter);
+  gap: 12px;
 }
 
 .pillar-card {
@@ -355,7 +355,7 @@
 .projects-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: var(--space-gutter);
+  gap: 12px;
 }
 
 .project-metrics {
@@ -386,7 +386,7 @@
 .side-projects-stack {
   display: flex;
   flex-direction: column;
-  gap: var(--space-gutter);
+  gap: 12px;
 }
 
 .side-project-card {

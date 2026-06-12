@@ -408,29 +408,22 @@ button.counter:hover,
 
 .btn-secondary:hover {
   border-color: var(--primary);
+  color: var(--primary);
   background: var(--surface-container-low);
 }
 
 /* Cards & Containers using Low-Contrast Outlines */
 .card {
   background: var(--surface-container-lowest);
-  border: 1px solid var(--outline-variant);
+  border: 0.5px solid var(--outline-variant);
   border-radius: var(--rounded-lg);
   padding: 24px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
   transition: border-color var(--transition-smooth);
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: var(--secondary);
-  transition: background var(--transition-smooth);
 }
 
 .card:hover {

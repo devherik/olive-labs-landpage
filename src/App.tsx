@@ -1,5 +1,8 @@
 import { useEffect } from 'react'
 import { useUIStore } from './store'
+import { TerminalTypewriter } from './components/TerminalTypewriter'
+import { TAB_CONTENT } from './components/terminalData'
+import type { TerminalTab } from './components/terminalData'
 
 import './App.css'
 
@@ -83,135 +86,13 @@ const PROJECTS: Project[] = [
   },
 ]
 
+
 function App() {
   const { theme, setTheme, terminalTab, setTerminalTab, initState } = useUIStore()
 
   useEffect(() => {
     initState()
   }, [initState])
-
-  // Rendering for the interactive terminal content based on the selected tab
-  const renderTerminalContent = () => {
-    switch (terminalTab) {
-      case 'manifest':
-        return (
-          <>
-            <div className="terminal-code-line">
-              <span className="line-number">01</span>
-              <span>
-                <span className="code-keyword">const</span> <span className="code-string">studio</span> = &#123;
-              </span>
-            </div>
-            <div className="terminal-code-line">
-              <span className="line-number">02</span>
-              <span>
-                &nbsp;&nbsp;<span className="code-keyword">name</span>: <span className="code-string">"Olive Labs Studio"</span>,
-              </span>
-            </div>
-            <div className="terminal-code-line">
-              <span className="line-number">03</span>
-              <span>
-                &nbsp;&nbsp;<span className="code-keyword">mantra</span>: <span className="code-string">"Engineered for Longevity. Rooted in Logic."</span>,
-              </span>
-            </div>
-            <div className="terminal-code-line">
-              <span className="line-number">04</span>
-              <span>
-                &nbsp;&nbsp;<span className="code-keyword">architecture</span>: <span className="code-string">"Clean Architecture / SOLID"</span>,
-              </span>
-            </div>
-            <div className="terminal-code-line">
-              <span className="line-number">05</span>
-              <span>
-                &nbsp;&nbsp;<span className="code-keyword">status</span>: <span className="code-number">"OPERATIONAL"</span>
-              </span>
-            </div>
-            <div className="terminal-code-line">
-              <span className="line-number">06</span>
-              <span>&#125;;</span>
-            </div>
-          </>
-        )
-      case 'infrastructure':
-        return (
-          <>
-            <div className="terminal-code-line">
-              <span className="line-number">01</span>
-              <span className="code-comment"># docker-compose.yml</span>
-            </div>
-            <div className="terminal-code-line">
-              <span className="line-number">02</span>
-              <span>
-                <span className="code-keyword">services:</span>
-              </span>
-            </div>
-            <div className="terminal-code-line">
-              <span className="line-number">03</span>
-              <span>
-                &nbsp;&nbsp;<span className="code-keyword">gateway:</span>
-              </span>
-            </div>
-            <div className="terminal-code-line">
-              <span className="line-number">04</span>
-              <span>
-                &nbsp;&nbsp;&nbsp;&nbsp;image: <span className="code-string">olivelabs/gateway:stable</span>
-              </span>
-            </div>
-            <div className="terminal-code-line">
-              <span className="line-number">05</span>
-              <span>
-                &nbsp;&nbsp;<span className="code-keyword">core-engine:</span>
-              </span>
-            </div>
-            <div className="terminal-code-line">
-              <span className="line-number">06</span>
-              <span>
-                &nbsp;&nbsp;&nbsp;&nbsp;image: <span className="code-string">olivelabs/core-go:stable</span>
-              </span>
-            </div>
-            <div className="terminal-code-line">
-              <span className="line-number">07</span>
-              <span>
-                &nbsp;&nbsp;<span className="code-keyword">vector-rag:</span>
-              </span>
-            </div>
-            <div className="terminal-code-line">
-              <span className="line-number">08</span>
-              <span>
-                &nbsp;&nbsp;&nbsp;&nbsp;image: <span className="code-string">olivelabs/rag-py:stable</span>
-              </span>
-            </div>
-          </>
-        )
-      case 'commands':
-        return (
-          <>
-            <div className="terminal-code-line">
-              <span className="line-number">01</span>
-              <span>
-                <span className="code-keyword">$</span> ./initialize_project.sh --template clean-slate
-              </span>
-            </div>
-            <div className="terminal-code-line">
-              <span className="line-number">02</span>
-              <span className="code-comment">[INFO] Loading Olive Labs Core Manifesto...</span>
-            </div>
-            <div className="terminal-code-line">
-              <span className="line-number">03</span>
-              <span className="code-comment">[INFO] Resolving system intersection database nodes...</span>
-            </div>
-            <div className="terminal-code-line">
-              <span className="line-number">04</span>
-              <span className="code-string">[SUCCESS] Initialized: 3 stable nodes operational.</span>
-            </div>
-            <div className="terminal-code-line">
-              <span className="line-number">05</span>
-              <span className="code-string">[SUCCESS] Engine online. Let's build.</span>
-            </div>
-          </>
-        )
-    }
-  }
 
   return (
     <>
@@ -328,7 +209,7 @@ function App() {
                 </div>
               </div>
 
-              <div className="terminal-window">
+              <div className="terminal-window" style={{ minWidth: '60vw' }}>
                 <div className="terminal-header">
                   <div className="terminal-buttons">
                     <span className="terminal-dot red"></span>
@@ -363,7 +244,7 @@ function App() {
                   </aside>
                   <div className="terminal-content">
                     <SlideInEffect>
-                      {renderTerminalContent()}
+                      <TerminalTypewriter key={terminalTab} tokens={TAB_CONTENT[terminalTab as TerminalTab]} />
                     </SlideInEffect>
                   </div>
                 </div>

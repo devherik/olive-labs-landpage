@@ -1,0 +1,17 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    environment:
+      - NODE_ENV=production
+    networks:
+      - default
+      - app_cloudflare-network
+
+networks:
+  app_cloudflare-network:
+    external: true
+  default:
+    driver: bridge

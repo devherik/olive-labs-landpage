@@ -11,7 +11,7 @@ ARG MODE=production
 COPY package*.json ./
 COPY tsconfig*.json ./
 
-RUN npm install --production=false
+RUN npm install --production=false --legacy-peer-deps
 
 COPY . .
 

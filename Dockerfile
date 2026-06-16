@@ -27,7 +27,7 @@ RUN apk add --no-cache curl
 
 COPY --from=builder --chown=nginx:nginx /app/dist /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --chown=nginx:nginx nginx.conf /etc/nginx/conf.d/default.conf
 
 # Run as non-root user provided by the unprivileged image
 USER nginx

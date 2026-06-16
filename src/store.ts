@@ -39,7 +39,7 @@ const applyThemeToDOM = (theme: Theme, font: Font) => {
 export const useUIStore = create<UIState>()(
   persist(
     (set, get) => ({
-      theme: 'system',
+      theme: 'light',
       font: 'sans',
       locale: 'pt-br',
       setTheme: (theme: Theme) => {

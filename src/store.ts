@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 
-import { type Theme, type Font, type Locale, ThemeSchema, FontSchema, LocaleSchema } from './schemas'
+import { type Theme, type Font, type Locale, type WorkbenchTab, ThemeSchema, FontSchema, LocaleSchema, WorkbenchTabSchema } from './schemas'
 
 interface UIState {
   theme: Theme;
@@ -11,8 +11,8 @@ interface UIState {
   setFont: (font: Font) => void;
   setLocale: (locale: Locale) => void;
   initState: () => void;
-  terminalTab: 'manifest' | 'infrastructure' | 'commands'
-  setTerminalTab: (tab: 'manifest' | 'infrastructure' | 'commands') => void
+  terminalTab: WorkbenchTab;
+  setTerminalTab: (tab: WorkbenchTab) => void;
 }
 
 const getSystemTheme = (): "light" | "dark" =>
@@ -89,8 +89,11 @@ export const useUIStore = create<UIState>()(
 
         set({ theme: storedTheme, font: storedFont, locale: storedLocale });
       },
-      terminalTab: 'manifest',
-      setTerminalTab: (tab) => set({ terminalTab: tab }),
+      terminalTab: 'engine.go',
+      setTerminalTab: (tab: WorkbenchTab) => {
+        const result = WorkbenchTabSchema.safeParse(tab);
+        set({ terminalTab: result.success ? tab : 'engine.go' });
+      },
     }),
     {
       name: 'olive-labs-ui',

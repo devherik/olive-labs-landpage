@@ -153,21 +153,21 @@ function App() {
             <ScrollReveal direction="up" distance={30} duration={1000}>
               <div className="hero-content">
                 <div className="hero-tagline">
-                  <span className="syntax-tag active">[ OLIVE LABS STUDIO // THE DIGITAL ATELIER ]</span>
+                  <span className="syntax-tag active">The Digital Atelier · Olive Labs</span>
                 </div>
                 <h1>
                   Craft for the creative voice.<br />
-                  <span style={{ color: 'var(--studio-sage)' }}>Software as digital instruments.</span>
+                  <span style={{ color: 'var(--secondary)' }}>Software as digital instruments.</span>
                 </h1>
                 <p className="body-lg" style={{ maxWidth: '680px', marginTop: '16px' }}>
                   Olive Labs is an independent digital atelier and boutique software house led by Herik Colares Rezende. We bridge Clean Architecture with non-intrusive artificial intelligence—crafting sovereign tools for creators and engineering high-stakes systems for forward-thinking enterprises.
                 </p>
                 <div className="hero-actions">
                   <a href="#instruments" className="btn-primary">
-                    EXPLORE FOLIOR WRITER
+                    Explore Folior Writer
                   </a>
                   <a href="#workbench" className="btn-secondary">
-                    INSPECT THE WORKBENCH
+                    Inspect the Workbench
                   </a>
                 </div>
               </div>
@@ -185,7 +185,7 @@ function App() {
                   </p>
                 </div>
                 <div className="section-metadata">
-                  PATH: /STUDIO/CORE_MANIFESTO
+                  Atelier Manifesto
                 </div>
               </div>
 
@@ -195,15 +195,15 @@ function App() {
                     <div>
                       <div className="pillar-icon-container">
                         <span className="network-node" style={{ marginRight: '8px' }}></span>
-                        <code style={{ fontSize: '11px' }}>{pillar.nodeId}</code>
+                        <span className="label-sm" style={{ color: 'var(--outline)' }}>{pillar.nodeId}</span>
                       </div>
                       <div className="pillar-subtitle">{pillar.subtitle}</div>
                       <h3 className="headline-md" style={{ margin: '8px 0 12px' }}>{pillar.title}</h3>
                       <p className="body-md">{pillar.description}</p>
                     </div>
                     <div className="pillar-footer">
-                      <span>PILLAR_ID: {pillar.nodeId}</span>
-                      <span style={{ color: 'var(--studio-mint)' }}>SOVEREIGN</span>
+                      <span>{pillar.nodeId}</span>
+                      <span style={{ color: 'var(--secondary)' }}>Sovereign Craft</span>
                     </div>
                   </div>
                 ))}
@@ -222,7 +222,7 @@ function App() {
                   </p>
                 </div>
                 <div className="section-metadata">
-                  REGISTRY: /LABS/INSTRUMENTS/FOLIOR
+                  Featured Instrument
                 </div>
               </div>
 
@@ -238,7 +238,7 @@ function App() {
                     <h3 className="display-lg" style={{ fontSize: '36px', marginBottom: '8px' }}>
                       {FLAGSHIP_INSTRUMENT.title}
                     </h3>
-                    <p className="body-lg" style={{ color: 'var(--studio-sage)', fontWeight: 500, marginBottom: '16px' }}>
+                    <p className="body-lg" style={{ color: 'var(--secondary)', fontWeight: 500, marginBottom: '16px' }}>
                       {FLAGSHIP_INSTRUMENT.tagline}
                     </p>
                     <p className="body-lg" style={{ lineHeight: 1.6 }}>
@@ -247,10 +247,10 @@ function App() {
 
                     <div style={{ display: 'flex', gap: '16px', marginTop: '32px', flexWrap: 'wrap' }}>
                       <a href={FLAGSHIP_INSTRUMENT.url} target="_blank" rel="noreferrer" className="btn-primary">
-                        LAUNCH FOLIOR.IO ↗
+                        Launch Folior.io ↗
                       </a>
                       <a href="#workbench" className="btn-secondary">
-                        VIEW GO & TS SPEC
+                        View Technical Spec
                       </a>
                     </div>
                   </div>
@@ -296,7 +296,7 @@ function App() {
                   </p>
                 </div>
                 <div className="section-metadata">
-                  SOURCE: /ENGINEERING/WORKBENCH_SPEC
+                  Workbench Specification
                 </div>
               </div>
 
@@ -360,7 +360,7 @@ function App() {
                   </p>
                 </div>
                 <div className="section-metadata">
-                  SYSTEMS: /PORTFOLIO/CASE_STUDIES
+                  Enterprise Systems
                 </div>
               </div>
 
@@ -370,13 +370,13 @@ function App() {
                   <div>
                     <div style={{ display: 'flex', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
                       <span className="syntax-tag active">{CASE_STUDY.status}</span>
-                      <span className="syntax-tag">CLIENT: {CASE_STUDY.client}</span>
+                      <span className="syntax-tag">Client: {CASE_STUDY.client}</span>
                     </div>
                     <h3 className="headline-md" style={{ fontSize: '24px' }}>{CASE_STUDY.title}</h3>
-                    <p className="body-md" style={{ color: 'var(--studio-sage)', marginTop: '4px' }}>{CASE_STUDY.subtitle}</p>
+                    <p className="body-md" style={{ color: 'var(--secondary)', marginTop: '4px' }}>{CASE_STUDY.subtitle}</p>
                   </div>
                   <div className="section-metadata" style={{ textAlign: 'right' }}>
-                    STACK: {CASE_STUDY.architecture}
+                    {CASE_STUDY.architecture}
                   </div>
                 </div>
 
@@ -426,7 +426,7 @@ function App() {
                   </p>
                 </div>
                 <div className="section-metadata">
-                  PROFILE: /STUDIO/HERIK_COLARES
+                  Architect & Founder
                 </div>
               </div>
 
@@ -436,7 +436,7 @@ function App() {
                     <div className="architect-avatar-badge">HC</div>
                     <div>
                       <h3 className="headline-md" style={{ margin: 0 }}>{ARCHITECT_PROFILE.name}</h3>
-                      <div className="body-md" style={{ color: 'var(--studio-sage)', fontWeight: 500 }}>
+                      <div className="body-md" style={{ color: 'var(--secondary)', fontWeight: 500 }}>
                         {ARCHITECT_PROFILE.role}
                       </div>
                       <div className="label-sm" style={{ color: 'var(--outline)', marginTop: '4px' }}>
@@ -469,7 +469,7 @@ function App() {
                   <div className="principles-list">
                     {ARCHITECT_PROFILE.corePrinciples.map((principle, idx) => (
                       <div key={idx} className="principle-item">
-                        <span style={{ color: 'var(--studio-mint)' }}>◆</span>
+                        <span style={{ color: 'var(--secondary)' }}>◆</span>
                         <span>{principle}</span>
                       </div>
                     ))}
@@ -503,8 +503,8 @@ function App() {
                     We accept a select number of high-stakes product builds, enterprise MCP integrations, and architectural consultations each quarter.
                   </p>
                 </div>
-                <a href="mailto:hello@olivelabs.studio" className="btn-primary" style={{ padding: '16px 32px', fontSize: '15px' }}>
-                  COMMISSION A BUILD ↗
+                <a href="mailto:hello@olivelabs.studio" className="btn-primary" style={{ padding: '14px 28px', fontSize: '15px' }}>
+                  Commission a Build ↗
                 </a>
               </div>
             </ScrollReveal>

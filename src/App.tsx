@@ -257,7 +257,6 @@ function App() {
 
                   <div className="feature-pill-list">
                     <div className="feature-pill-item">
-                      <span className="feature-pill-icon">🪶</span>
                       <div className="feature-pill-content">
                         <h4>Style-Aware AI Mentoring</h4>
                         <p>Contextual reading and ghost suggestions that illuminate pacing and character arcs without overwriting prose.</p>
@@ -265,7 +264,6 @@ function App() {
                     </div>
 
                     <div className="feature-pill-item">
-                      <span className="feature-pill-icon">🕸️</span>
                       <div className="feature-pill-content">
                         <h4>Codex Entity Graph</h4>
                         <p>Relational compendiums and thematic links that cross-reference research notes, factions, and chapter hierarchies.</p>
@@ -273,7 +271,6 @@ function App() {
                     </div>
 
                     <div className="feature-pill-item">
-                      <span className="feature-pill-icon">🔒</span>
                       <div className="feature-pill-content">
                         <h4>Local-First Sovereignty & AES-256</h4>
                         <p>Creative intellectual property remains localized, encrypted, and owned exclusively by the writer.</p>

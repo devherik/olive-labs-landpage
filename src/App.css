@@ -275,9 +275,6 @@
 }
 
 .feature-pill-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
   padding: 16px 20px;
   background: var(--surface-container-low);
   border-radius: var(--rounded-default);
@@ -287,11 +284,6 @@
 
 .feature-pill-item:hover {
   background: var(--surface-container);
-}
-
-.feature-pill-icon {
-  font-size: 18px;
-  line-height: 1.2;
 }
 
 .feature-pill-content h4 {

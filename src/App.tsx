@@ -12,6 +12,7 @@ import logoImg from './assets/logo.png'
 import logoDarkImg from './assets/logo-dark.png'
 import logoIcon from './assets/logo-icon-only.png'
 import heroImg from './assets/hero.png'
+import profileImg from './assets/profile.jpg'
 
 import FadeInEffect from './animations/AnimatedFadeIn'
 import AnimatedPresenceWrapper from './animations/AnimatedPresenceWrapper'
@@ -430,7 +431,7 @@ function App() {
               <div className="architect-card">
                 <div>
                   <div className="architect-meta">
-                    <div className="architect-avatar-badge">HC</div>
+                    <img src={profileImg} alt={ARCHITECT_PROFILE.name} className="architect-avatar-img" />
                     <div>
                       <h3 className="headline-md" style={{ margin: 0 }}>{ARCHITECT_PROFILE.name}</h3>
                       <div className="body-md" style={{ color: 'var(--secondary)', fontWeight: 500 }}>

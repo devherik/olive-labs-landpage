@@ -560,6 +560,25 @@
   margin-bottom: 24px;
 }
 
+.architect-avatar-img {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--rounded-full);
+  object-fit: cover;
+  border: 1.5px solid var(--secondary);
+  box-shadow: var(--shadow);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast), border-color var(--transition-smooth);
+}
+
+.architect-avatar-img:hover {
+  transform: scale(1.05);
+}
+
+.dark .architect-avatar-img {
+  border-color: var(--studio-mint);
+}
+
 .architect-avatar-badge {
   width: 54px;
   height: 54px;

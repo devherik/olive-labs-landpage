@@ -501,7 +501,7 @@ function App() {
                     We accept a select number of high-stakes product builds, enterprise MCP integrations, and architectural consultations each quarter.
                   </p>
                 </div>
-                <a href="mailto:hello@olivelabs.studio" className="btn-primary" style={{ padding: '14px 28px', fontSize: '15px' }}>
+                <a href="mailto:olive@olivelabs.cloud" className="btn-primary" style={{ padding: '14px 28px', fontSize: '15px' }}>
                   Commission a Build ↗
                 </a>
               </div>
